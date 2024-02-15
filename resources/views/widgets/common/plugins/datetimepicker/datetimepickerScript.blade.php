@@ -1,0 +1,2 @@
+<script src="{{ url('assets/js/bootstrap/moment.min.js') }}" type="text/javascript"></script>
+<script src="{{ url('assets/js/bootstrap/addons/bootstrap-datetimepicker.min.js') }}" type="text/javascript"></script>

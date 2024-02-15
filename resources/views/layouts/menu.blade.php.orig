@@ -1,0 +1,112 @@
+<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <img data-zs-logo="" src="{{ asset('/Logo1.gif') }}" style="padding-left:10px;height:40px;width:50.44px;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{{ url('/') }}">
+            {{ 'Tuition Centre' }}
+        </a>
+        <div class="navbar-nav">
+          @if(auth()->check())
+            <li class="nav-item">
+                <a class="navbar-brand nav-item-right nav-link" href="{{ url('/users/list') }}" id="navbardrop" data-toggle="dropdown">
+                    {{ __('Users') }}
+                </a>
+            </li>
+          @endif
+        </div>
+        <div class="navbar-nav">
+          @if(auth()->check())
+            <li class="nav-item">
+<<<<<<< HEAD
+                <a class="navbar-item-brand nav-item-right nav-link" href="{{ url('/payments/list') }}" id="navbardrop" data-toggle="dropdown">
+                    {{ __('Payments') }}
+=======
+                <a class="navbar-brand nav-item-right nav-link" href="{{ url('/payments/list') }}" id="navbardrop" data-toggle="dropdown">
+                    {{ __('Donations') }}
+>>>>>>> 7db168c (charts and menus update)
+                </a>
+            </li>
+          @endif
+        </div>
+<<<<<<< HEAD
+        <div class="navbar-nav px-2">
+          @if(auth()->check())
+            <li class="nav-item dropdown">
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    {{__('Reports')}}
+                </a>
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ url('/payments/reports') }}"> {{ __('Monthly Report') }}</a>
+                    <a class="dropdown-item" href="{{ url('/payments/year-reports') }}"> {{ __('Yearly Report') }}</a>
+                </div>
+            </li>
+          @endif
+        </div>
+=======
+
+        <div class="navbar-nav">
+          @if(auth()->check())
+            <li class="nav-item">
+                <a class="navbar-brand nav-item-right nav-link" href="{{ url('/events') }}" id="navbardrop" data-toggle="dropdown">
+                    {{ __('Events') }}
+                </a>
+            </li>
+          @endif
+        </div>
+
+        <div class="navbar-nav">
+          @if(auth()->check())
+            <li class="nav-item">
+                <a class="navbar-brand nav-item-right nav-link" href="" id="navbardrop" data-toggle="dropdown">
+                    {{ __('Finance') }}
+                </a>
+            </li>
+          @endif
+        </div>
+
+>>>>>>> 7db168c (charts and menus update)
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                       
+            <!-- Right Side Of Navbar -->
+            <ul class="navbar-nav ms-auto">
+                <!-- Authentication Links -->
+                @guest
+                    @if (Route::has('login'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                    @endif
+
+                    @if (Route::has('register'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        </li>
+                    @endif
+                @else
+
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->username }}
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+                            <a class="dropdown-item" href="{{ url('/profile') }}">
+                                {{ __('Profile') }}
+                            </a>
+
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                @endguest
+            </ul>
+        </div>
+    </div>
+</nav>
